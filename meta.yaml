@@ -1,0 +1,5 @@
+name: zap-api-call
+description: ZAP bridge plugin for jshookmcp.
+author: vmoranv
+source_repo: https://github.com/vmoranv/jshook_plugin_zap_api_call
+
