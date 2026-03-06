@@ -234,11 +234,6 @@ const plugin: PluginContract = {
     if (!enabled) return { valid: false, errors: ['Plugin disabled by config'] };
     return { valid: true, errors: [] };
   },
-  onRegister(ctx: PluginLifecycleContext): void {
-    ctx.registerDomain(domainManifest);
-    ctx.registerMetric('zap_api_call_calls_total');
-    ctx.registerMetric('zap_core_version_calls_total');
-  },
 };
 
 export default plugin;
