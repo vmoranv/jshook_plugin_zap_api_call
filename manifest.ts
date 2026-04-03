@@ -2,12 +2,20 @@ import {
   createExtension,
   jsonResponse,
   errorResponse,
-  getPluginBooleanConfig,
-  loadPluginEnv,
 } from '@jshookmcp/extension-sdk/plugin';
 import type { ToolArgs, PluginLifecycleContext } from '@jshookmcp/extension-sdk/plugin';
 
-loadPluginEnv(import.meta.url);
+const PLUGIN_SLUG = 'zap-api-call';
+
+function getPluginBooleanConfig(
+  ctx: PluginLifecycleContext,
+  slug: string,
+  key: string,
+  fallback: boolean,
+): boolean {
+  const value = ctx.getConfig(`plugins.${slug}.${key}`, fallback);
+  return typeof value === 'boolean' ? value : fallback;
+}
 
 function isLoopbackUrl(value: string): boolean {
   try {
