@@ -126,7 +126,7 @@ async function handleZapCoreVersion() {
   }
 }
 
-const plugin = createExtension('io.github.vmoranv.zap-api-call', '0.1.0')
+export default createExtension('io.github.vmoranv.zap-api-call', '0.1.0')
   .compatibleCore('>=0.1.0')
   .profile(['workflow', 'full'])
   .allowHost(['127.0.0.1', 'localhost', '::1'])
@@ -158,12 +158,3 @@ const plugin = createExtension('io.github.vmoranv.zap-api-call', '0.1.0')
     if (!enabled) return { valid: false, errors: ['Plugin disabled by config'] };
     return { valid: true, errors: [] };
   });
-
-Object.defineProperty(plugin, 'workflows', {
-  value: [],
-  enumerable: false,
-  configurable: true,
-  writable: false,
-});
-
-export default plugin;
